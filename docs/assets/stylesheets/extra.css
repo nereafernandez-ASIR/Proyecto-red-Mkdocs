@@ -1,0 +1,205 @@
+/* ============================================================
+   ESTÉTICA CISCO PACKET TRACER
+   CSS personalizado para emular la interfaz de Packet Tracer
+   ============================================================ */
+
+/* Estilo para imágenes - Bordes redondeados y cabecera azul */
+.md-content img {
+    border: 2px solid #95a5a6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    display: block;
+    max-width: 100%;
+}
+
+/* Cabecera azul estilo Packet Tracer para contenedores de imágenes */
+.packet-tracer-window {
+    background: #ffffff;
+    border: 2px solid #95a5a6;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.packet-tracer-window .header {
+    background: linear-gradient(to bottom, #4a90e2, #2e5c8a);
+    color: white;
+    padding: 8px 15px;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 1px solid #1e3a5f;
+}
+
+.packet-tracer-window .content {
+    padding: 15px;
+}
+
+.packet-tracer-window img {
+    border: none;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* Estilos para bloques de código CLI de Cisco */
+.highlight pre {
+    background-color: #1e1e1e !important;
+    border-left: 4px solid #4a90e2;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Resaltado especial para comandos Cisco */
+.language-cisco {
+    background-color: #0d1117 !important;
+    color: #c9d1d9;
+}
+
+/* Estilo para admonitions personalizados */
+.md-typeset .admonition.hardware {
+    border-left-color: #4a90e2;
+}
+
+.md-typeset .admonition.hardware > .admonition-title {
+    background-color: rgba(74, 144, 226, 0.1);
+}
+
+.md-typeset .admonition.hardware > .admonition-title::before {
+    background-color: #4a90e2;
+}
+
+/* Estilo para tablas de direccionamiento IP */
+.md-typeset table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.md-typeset table thead {
+    background: linear-gradient(to bottom, #4a90e2, #357abd);
+    color: white;
+}
+
+.md-typeset table thead th {
+    padding: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.md-typeset table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.md-typeset table tbody tr:hover {
+    background-color: #e3f2fd;
+    transition: background-color 0.3s ease;
+}
+
+.md-typeset table tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Estilo para pestañas de pruebas de conectividad */
+.tabbed-set {
+    border: 2px solid #4a90e2;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.tabbed-labels {
+    background: linear-gradient(to right, #4a90e2, #357abd);
+}
+
+.tabbed-labels label {
+    color: white;
+    font-weight: bold;
+}
+
+/* Terminal output styling */
+.terminal-output {
+    background-color: #0d1117;
+    color: #58d68d;
+    padding: 15px;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-x: auto;
+    border: 1px solid #30363d;
+}
+
+.terminal-output .success {
+    color: #58d68d;
+}
+
+.terminal-output .error {
+    color: #f85149;
+}
+
+.terminal-output .prompt {
+    color: #79c0ff;
+    font-weight: bold;
+}
+
+/* Estilo para diagramas Mermaid */
+.mermaid {
+    background-color: #ffffff;
+    border: 2px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* Mejoras para dispositivos de red en texto */
+.device {
+    background-color: #e3f2fd;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #1565c0;
+}
+
+.vlan-tag {
+    background-color: #fff3cd;
+    border: 1px solid #ffc107;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #856404;
+}
+
+.ip-address {
+    background-color: #d4edda;
+    border: 1px solid #28a745;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+    color: #155724;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .packet-tracer-window {
+        margin: 10px 0;
+    }
+    
+    .md-typeset table {
+        font-size: 12px;
+    }
+    
+    .terminal-output {
+        font-size: 11px;
+    }
+}
+
+/* Animation para hover effects */
+.md-typeset .admonition:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

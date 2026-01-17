@@ -1,0 +1,103 @@
+site_name: Proyecto de Red - Cisco Packet Tracer
+site_description: Documentación técnica del proyecto final de red con segmentación VLAN, enrutamiento Inter-VLAN y seguridad ACL
+site_author: Nerea Fernández
+site_url: https://nereafernandez-ASIR.github.io/Proyecto-red-Mkdocs/
+
+theme:
+  name: material
+  language: es
+  palette:
+    # Paleta de colores inspirada en Cisco Packet Tracer
+    - scheme: default
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: blue grey
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+  
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  
+  icon:
+    logo: material/network
+    repo: fontawesome/brands/github
+
+# Plugins necesarios
+plugins:
+  - search:
+      lang: es
+
+# Extensiones de Markdown
+markdown_extensions:
+  # Para admonitions (cuadros de información)
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  
+  # Para pestañas (tabs)
+  - pymdownx.tabbed:
+      alternate_style: true
+  
+  # Para resaltado de sintaxis mejorado
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  
+  # Para emojis y mejoras visuales
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  
+  # Para listas de tareas y otras mejoras
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.caret
+  - pymdownx.tilde
+  
+  # Mejoras generales de Markdown
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+
+# CSS personalizado
+extra_css:
+  - assets/stylesheets/extra.css
+
+# Navegación
+nav:
+  - Inicio: index.md
+  - Configuración de Red: configuracion.md
+  - Seguridad y ACLs: seguridad.md
+  - Pruebas y Monitorización: pruebas.md
+  - Conclusiones: conclusiones.md
+  - Elementos del Proyecto: documentacion-proyecto.md
+
+# Información adicional
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com
