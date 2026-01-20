@@ -1,0 +1,1480 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación técnica del proyecto final de red con segmentación VLAN, enrutamiento Inter-VLAN y seguridad ACL">
+      
+      
+        <meta name="author" content="Nerea Fernández">
+      
+      
+        <link rel="canonical" href="https://nereafernandez-ASIR.github.io/Proyecto-red-Mkdocs/configuracion/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../seguridad/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Configuración de Red - Proyecto de Red - Cisco Packet Tracer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuracion-de-la-red" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Proyecto de Red - Cisco Packet Tracer" class="md-header__button md-logo" aria-label="Proyecto de Red - Cisco Packet Tracer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4v2h1a1 1 0 0 1 1 1h7v2h-7a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1H2v-2h7a1 1 0 0 1 1-1h1v-2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Proyecto de Red - Cisco Packet Tracer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuración de Red
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Configuración de Red
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../seguridad/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Seguridad y ACLs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../pruebas/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Pruebas y Monitorización
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../conclusiones/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Conclusiones
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../documentacion-proyecto/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Elementos del Proyecto
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Proyecto de Red - Cisco Packet Tracer" class="md-nav__button md-logo" aria-label="Proyecto de Red - Cisco Packet Tracer" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4v2h1a1 1 0 0 1 1 1h7v2h-7a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1H2v-2h7a1 1 0 0 1 1-1h1v-2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>
+
+    </a>
+    Proyecto de Red - Cisco Packet Tracer
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración de Red
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuración de Red
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-las-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creación de las VLANs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asignacion-de-ips-a-las-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asignación de IPs a las VLANs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-los-puertos-del-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de los Puertos del Switch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de los Puertos del Switch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puertos-para-los-pcs-vlan-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puertos para los PCs (VLAN 10)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puertos-para-las-impresoras-vlan-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puertos para las Impresoras (VLAN 20)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puerto-para-el-access-point-vlan-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puerto para el Access Point (VLAN 30)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puerto-para-el-router-vlan-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puerto para el Router (VLAN 40)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-del-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración del Router
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-los-pcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de los PCs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-las-impresoras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de las Impresoras
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-del-access-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración del Access Point
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-los-portatiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de los Portátiles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de los Portátiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-conectar-al-wifi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Conectar al WiFi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-configurar-la-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2: Configurar la IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabla-resumen-de-direccionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla Resumen de Direccionamiento
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificacion-basica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificación Básica
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verificación Básica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ver-las-vlans-creadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ver las VLANs creadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ver-las-ips-del-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ver las IPs del switch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguridad y ACLs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pruebas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pruebas y Monitorización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conclusiones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conclusiones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documentacion-proyecto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Elementos del Proyecto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-las-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creación de las VLANs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asignacion-de-ips-a-las-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asignación de IPs a las VLANs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-los-puertos-del-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de los Puertos del Switch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de los Puertos del Switch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puertos-para-los-pcs-vlan-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puertos para los PCs (VLAN 10)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puertos-para-las-impresoras-vlan-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puertos para las Impresoras (VLAN 20)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puerto-para-el-access-point-vlan-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puerto para el Access Point (VLAN 30)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#puerto-para-el-router-vlan-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puerto para el Router (VLAN 40)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-del-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración del Router
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-los-pcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de los PCs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-las-impresoras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de las Impresoras
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-del-access-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración del Access Point
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-los-portatiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de los Portátiles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de los Portátiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-conectar-al-wifi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Conectar al WiFi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-configurar-la-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2: Configurar la IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabla-resumen-de-direccionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla Resumen de Direccionamiento
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificacion-basica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificación Básica
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verificación Básica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ver-las-vlans-creadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ver las VLANs creadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ver-las-ips-del-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ver las IPs del switch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="configuracion-de-la-red">Configuración de la Red</h1>
+<p>En esta página explico paso a paso cómo se configura toda la red en Packet Tracer.</p>
+<hr />
+<h2 id="creacion-de-las-vlans">Creación de las VLANs</h2>
+<p>Lo primero que se realiza son las 4 VLANs en el switch de capa 3. Las VLANs sirven para segmentar la red, es decir, dividirla en partes más pequeñas y organizadas.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Switch&gt; enable
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Switch# configure terminal
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Switch(config)# hostname SwitchCapa3
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>! VLAN 10 para los ordenadores
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>SwitchCapa3(config)# vlan 10
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>SwitchCapa3(config-vlan)# name Ordenadores
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>SwitchCapa3(config-vlan)# exit
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>! VLAN 20 para las impresoras
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>SwitchCapa3(config)# vlan 20
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>SwitchCapa3(config-vlan)# name Impresoras
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>SwitchCapa3(config-vlan)# exit
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>! VLAN 30 para el WiFi
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>SwitchCapa3(config)# vlan 30
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>SwitchCapa3(config-vlan)# name WiFi
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>SwitchCapa3(config-vlan)# exit
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>! VLAN 40 para el router
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>SwitchCapa3(config)# vlan 40
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>SwitchCapa3(config-vlan)# name Router
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>SwitchCapa3(config-vlan)# exit
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Todo esto se realiza desde la consola CLI del switch en Packet Tracer. Ponemos la vlan que queremos crear, y le daremos un nombre.</p>
+</div>
+<hr />
+<h2 id="asignacion-de-ips-a-las-vlans">Asignación de IPs a las VLANs</h2>
+<p>Una vez creadas las VLANs, hay que asignarles direcciones IP. Esto se hace creando <strong>interfaces virtuales</strong> (SVI) que actúan como "gateways" o puertas de enlace para cada VLAN.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>! Primero hay que activar el enrutamiento IP
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>SwitchCapa3(config)# ip routing
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>! Gateway para VLAN 10 (Ordenadores)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>SwitchCapa3(config)# interface vlan 10
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>SwitchCapa3(config-if)# ip address 192.168.10.1 255.255.255.0
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>SwitchCapa3(config-if)# no shutdown
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>SwitchCapa3(config-if)# exit
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>! Gateway para VLAN 20 (Impresoras)
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>SwitchCapa3(config)# interface vlan 20
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>SwitchCapa3(config-if)# ip address 192.168.20.1 255.255.255.0
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>SwitchCapa3(config-if)# no shutdown
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>SwitchCapa3(config-if)# exit
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>! Gateway para VLAN 30 (WiFi)
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>SwitchCapa3(config)# interface vlan 30
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>SwitchCapa3(config-if)# ip address 192.168.30.1 255.255.255.0
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>SwitchCapa3(config-if)# no shutdown
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>SwitchCapa3(config-if)# exit
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>! Gateway para VLAN 40 (Router)
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>SwitchCapa3(config)# interface vlan 40
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>SwitchCapa3(config-if)# ip address 192.168.40.1 255.255.255.0
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>SwitchCapa3(config-if)# no shutdown
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>SwitchCapa3(config-if)# exit
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Comandos básicos</p>
+<p><code>interface vlan 40</code> selecciona la VLAN, <code>ip address</code> asigna la IP, <code>no shutdown</code> la activa, y <code>exit</code> sale.</p>
+</div>
+<hr />
+<h2 id="configuracion-de-los-puertos-del-switch">Configuración de los Puertos del Switch</h2>
+<p>Ahora toca asignar cada puerto físico del switch a su VLAN correspondiente. Para saber qué puertos usar, en Packet Tracer dejando el ratón encima del switch, sale una lista con todos los puertos ocupados. (cuadro descriptivo).</p>
+<h3 id="puertos-para-los-pcs-vlan-10">Puertos para los PCs (VLAN 10)</h3>
+<p>Los 11 PCs están conectados desde el puerto Fa0/1 hasta el Fa0/11:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SwitchCapa3(config)# interface range fastEthernet 0/1-11
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>SwitchCapa3(config-if-range)# switchport mode access
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>SwitchCapa3(config-if-range)# switchport access vlan 10
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>SwitchCapa3(config-if-range)# no shutdown
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>SwitchCapa3(config-if-range)# exit
+</span></code></pre></div>
+<h3 id="puertos-para-las-impresoras-vlan-20">Puertos para las Impresoras (VLAN 20)</h3>
+<p>Las 3 impresoras están en los puertos Fa0/12, Fa0/13 y Fa0/14:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>SwitchCapa3(config)# interface range fastEthernet 0/12-14
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>SwitchCapa3(config-if-range)# switchport mode access
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>SwitchCapa3(config-if-range)# switchport access vlan 20
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>SwitchCapa3(config-if-range)# no shutdown
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>SwitchCapa3(config-if-range)# exit
+</span></code></pre></div>
+<h3 id="puerto-para-el-access-point-vlan-30">Puerto para el Access Point (VLAN 30)</h3>
+<p>El AP está conectado al puerto Fa0/15:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>SwitchCapa3(config)# interface fastEthernet 0/15
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>SwitchCapa3(config-if)# switchport mode access
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>SwitchCapa3(config-if)# switchport access vlan 30
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>SwitchCapa3(config-if)# no shutdown
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>SwitchCapa3(config-if)# exit
+</span></code></pre></div>
+<h3 id="puerto-para-el-router-vlan-40">Puerto para el Router (VLAN 40)</h3>
+<p>El router está en el puerto GigabitEthernet 0/1:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>SwitchCapa3(config)# interface gigabitEthernet 0/1
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>SwitchCapa3(config-if)# switchport mode access
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>SwitchCapa3(config-if)# switchport access vlan 40
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>SwitchCapa3(config-if)# no shutdown
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>SwitchCapa3(config-if)# exit
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Configuración de puerto</p>
+<p>Se selecciona el puerto con <code>interface</code>, se pone en modo <code>access</code>, se asigna a la VLAN 30, se activa con <code>no shutdown</code> y se sale.</p>
+</div>
+<hr />
+<h2 id="configuracion-del-router">Configuración del Router</h2>
+<p>El router lo configuré con la IP <strong>192.168.40.10</strong> en la interfaz que va conectada al switch:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Router&gt; enable
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Router# configure terminal
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Router(config)# hostname RouterPrincipal
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>RouterPrincipal(config)# interface gigabitEthernet 0/1
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>RouterPrincipal(config-if)# ip address 192.168.40.10 255.255.255.0
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>RouterPrincipal(config-if)# no shutdown
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>RouterPrincipal(config-if)# exit
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>! Ruta para que el router sepa dónde están las demás redes
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>RouterPrincipal(config)# ip route 192.168.0.0 255.255.0.0 192.168.40.1
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>RouterPrincipal(config)# exit
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>RouterPrincipal# write memory
+</span></code></pre></div>
+<p>Esta ruta hace que el router sepa que todas las redes 192.168.x.x están detrás del switch (192.168.40.1).</p>
+<hr />
+<h2 id="configuracion-de-los-pcs">Configuración de los PCs</h2>
+<p>Todos los PCs se configuraron con <strong>IP estática</strong> (fija). Aquí un ejemplo con el PC0:</p>
+<ul>
+<li><strong>IP:</strong> 192.168.10.10</li>
+<li><strong>Máscara:</strong> 255.255.255.0</li>
+<li><strong>Gateway:</strong> 192.168.10.1</li>
+</ul>
+<p>Y así sucesivamente hasta el PC10 con la IP 192.168.10.20.</p>
+<p><img alt="Ejemplo configuración PC" src="../assets/images/config-pc.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">IPs de los PCs</p>
+<ul>
+<li>PC0: 192.168.10.10</li>
+<li>PC1: 192.168.10.11</li>
+<li>PC2: 192.168.10.12</li>
+<li>...</li>
+<li>PC10: 192.168.10.20</li>
+</ul>
+</div>
+<hr />
+<h2 id="configuracion-de-las-impresoras">Configuración de las Impresoras</h2>
+<p>Las impresoras también tienen IP fija:</p>
+<table>
+<thead>
+<tr>
+<th>Impresora</th>
+<th>IP</th>
+<th>Gateway</th>
+<th>Máscara</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Impresora 0</td>
+<td>192.168.20.10</td>
+<td>192.168.20.1</td>
+<td>255.255.255.0</td>
+</tr>
+<tr>
+<td>Impresora 1</td>
+<td>192.168.20.11</td>
+<td>192.168.20.1</td>
+<td>255.255.255.0</td>
+</tr>
+<tr>
+<td>Impresora 2</td>
+<td>192.168.20.12</td>
+<td>192.168.20.1</td>
+<td>255.255.255.0</td>
+</tr>
+</tbody>
+</table>
+<p>Esto es importante porque así los PCs pueden encontrar las impresoras siempre en la misma dirección.</p>
+<hr />
+<h2 id="configuracion-del-access-point">Configuración del Access Point</h2>
+<p>El AP se configura desde la pestaña <strong>Config</strong> del AP en Packet Tracer:</p>
+<p><strong>En el Puerto 1:</strong>
+- <strong>SSID:</strong> wifi
+- <strong>Tipo de seguridad:</strong> WPA2-PSK
+- <strong>Contraseña:</strong> prueba1234</p>
+<p><img alt="Configuración AP" src="../assets/images/config-ap.png" /></p>
+<hr />
+<h2 id="configuracion-de-los-portatiles">Configuración de los Portátiles</h2>
+<p>Los portátiles primero hay que conectarlos al WiFi y luego asignarles IP estática:</p>
+<h3 id="paso-1-conectar-al-wifi">Paso 1: Conectar al WiFi</h3>
+<ol>
+<li>En el portátil, ir a <strong>Desktop</strong> → <strong>PC Wireless</strong></li>
+<li>Darle a <strong>Refresh</strong> → aparece el SSID "wifi"</li>
+<li>Conectar e introducir la contraseña: <strong>prueba1234</strong></li>
+</ol>
+<h3 id="paso-2-configurar-la-ip">Paso 2: Configurar la IP</h3>
+<p>En la pestaña <strong>Config</strong> → <strong>Interface Wireless0</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Portátil</th>
+<th>IP</th>
+<th>Gateway</th>
+<th>Máscara</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Laptop 0</td>
+<td>192.168.30.10</td>
+<td>192.168.30.1</td>
+<td>255.255.255.0</td>
+</tr>
+<tr>
+<td>Laptop 1</td>
+<td>192.168.30.11</td>
+<td>192.168.30.1</td>
+<td>255.255.255.0</td>
+</tr>
+<tr>
+<td>Laptop 2</td>
+<td>192.168.30.12</td>
+<td>192.168.30.1</td>
+<td>255.255.255.0</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<p>Primero hay que conectar al WiFi y luego configurar la IP. Si lo haces al revés no funciona.</p>
+</div>
+<hr />
+<h2 id="tabla-resumen-de-direccionamiento">Tabla Resumen de Direccionamiento</h2>
+<p>Es importante tener una tabla de IPs de esta manera llevar un mantenimiento será mas sencillo:</p>
+<table>
+<thead>
+<tr>
+<th>Dispositivo</th>
+<th>VLAN</th>
+<th>IP</th>
+<th>Máscara</th>
+<th>Gateway</th>
+<th>Puertos Switch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PCs (11)</strong></td>
+<td>10</td>
+<td>192.168.10.10-20</td>
+<td>255.255.255.0</td>
+<td>192.168.10.1</td>
+<td>Fa0/1 - Fa0/11</td>
+</tr>
+<tr>
+<td><strong>Impresoras (3)</strong></td>
+<td>20</td>
+<td>192.168.20.10-12</td>
+<td>255.255.255.0</td>
+<td>192.168.20.1</td>
+<td>Fa0/12 - Fa0/14</td>
+</tr>
+<tr>
+<td><strong>Portátiles (3)</strong></td>
+<td>30</td>
+<td>192.168.30.10-12</td>
+<td>255.255.255.0</td>
+<td>192.168.30.1</td>
+<td>(WiFi)</td>
+</tr>
+<tr>
+<td><strong>Access Point</strong></td>
+<td>30</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>Fa0/15</td>
+</tr>
+<tr>
+<td><strong>Router</strong></td>
+<td>40</td>
+<td>192.168.40.10</td>
+<td>255.255.255.0</td>
+<td>192.168.40.1</td>
+<td>Gi0/1</td>
+</tr>
+<tr>
+<td><strong>Switch (SVI)</strong></td>
+<td>-</td>
+<td>192.168.x.1</td>
+<td>255.255.255.0</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="verificacion-basica">Verificación Básica</h2>
+<p>Para comprobar que todo esta bien configurado, se usará estos comandos:</p>
+<h3 id="ver-las-vlans-creadas">Ver las VLANs creadas</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SwitchCapa3# show vlan brief
+</span></code></pre></div>
+<p>Este comando permite mostrar todas las VLANs y puertos que estén asignados.</p>
+<h3 id="ver-las-ips-del-switch">Ver las IPs del switch</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>SwitchCapa3# show ip interface brief
+</span></code></pre></div>
+<p>Con este comando se puede ver que las interfaces VLAN 10, 20, 30 y 40 estaban "up" (funcionando).</p>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">¡Configuración completada!</p>
+<p>Con esto ya tendríamos toda la red montada. Lo siguiente será configurar la seguridad y hacer pruebas para ver que todo funcione correctamente.</p>
+</div>
+<p><strong>Siguiente:</strong> <a href="../seguridad/">Seguridad y ACLs →</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Anterior: Inicio">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Inicio
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../seguridad/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Seguridad y ACLs">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Seguridad y ACLs
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
